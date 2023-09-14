@@ -5,6 +5,7 @@ import { GlobalTextEEditor, isActive } from './utils/globa-state';
 import IntroductionItem from './component/introduction';
 import Logo from './component/logo';
 import { TypographyItems } from './utils/data';
+import Slider from './component/slider';
 // import LiveCodeEditor from './Iframe';
 
 
@@ -88,15 +89,9 @@ function App() {
 					</nav>
 				</header>
 				{/* tab list */}
-				<div class='p-5'>
-					<ul className='flex gap-4 justify-center'>
-						{TypographyItems.slice(0,5).map((item, index) => (
-							<li key={index} className='text-[#364954] px-5 py-2 rounded font-semibold'>
-								{item}
-							</li>
-						))}
-					</ul>
-				</div>
+				{toggle === true && (
+					<Slider />
+				)}
 				{/* editor content */}
 				<main className=''>{toggle === true ? <TextEditorLive /> : <IntroductionItem />}</main>
 			</div>
