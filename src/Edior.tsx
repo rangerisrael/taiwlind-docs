@@ -4,17 +4,7 @@ import { GlobalTextEEditor, isActive } from './utils/globa-state';
 import Image from './component/Image';
 import GifSun from './assets/on-sun.gif';
 import GifMoon from './assets/off-moon.gif';
-const applyTailwindClasses = (htmlCode: string) => {
-	// Define your allowed Tailwind CSS classes
-	const allowedClasses = ['text-3xl', 'text-xs', 'text-sm', 'text-base', 'text-lg', 'text-2xl', 'text-4xl', 'text-5xl', 'text-6xl', 'text-7xl', 'text-8xl', 'text-9xl', 'font-thin', 'font-extralight', 'font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold', 'font-extrabold', 'font-black', 'bg-red-100', 'bg-red-200', 'bg-red-300', 'bg-red-400', 'bg-red-500', 'bg-red-600', 'bg-red-700', 'bg-red-800', 'bg-red-900', 'bg-blue-100'];
-
-	// Use regex to find and replace class attributes in HTML elements
-	const regex = /class=["'](.*?)["']/g;
-	return htmlCode.replace(regex, (_match, classes) => {
-		const classList = classes.split(' ').filter((className: string) => allowedClasses.includes(className));
-		return `class="${classList.join(' ')}"`;
-	});
-};
+import { applyTailwindClasses } from './utils/helper';
 
 const TextEditorLive: React.FC = () => {
 

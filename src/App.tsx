@@ -30,17 +30,17 @@ function App() {
 	const onToggle = useCallback((index:number)=>{
 			if(index === 0){
 				setUserCode(`
-					<h1 class="text-9xl">Hello world</h1> 
-				    <h1 class="text-8xl">Hello world</h1>
-					<h1 class="text-7xl">Hello world</h1>
-					<h1 class="text-6xl">Hello world</h1>
-					<h1 class="text-5xl">Hello world</h1>
-					<h1 class="text-4xl">Hello world</h1>
-					<h1 class="text-3xl">Hello world</h1>
-					<h1 class="text-2xl">Hello world</h1>
-					<h1 class="text-lg">Hello world</h1>
-					<h1 class="text-base">Hello world</h1>
-					<h1 class="text-sm font-bold">Hello world</h1>`);
+      <p class="text-9xl">Font size</p> 
+      <p class="text-8xl">Font size</p>
+      <p class="text-7xl">Font size</p>
+      <p class="text-6xl">Font size</p>
+      <p class="text-5xl">Font size</p>
+      <p class="text-4xl">Font size</p>
+      <p class="text-3xl">Font size</p>
+      <p class="text-2xl">Font size</p>
+      <p class="text-lg">Font size</p>
+      <p class="text-base">Font size</p>
+      <p class="text-sm">Font size</p>`);
 			}
 			if(index === 1){
 					
@@ -62,6 +62,7 @@ function App() {
 					<div className='flex justify-center content-center'>
 						<Logo />
 					</div>
+					
 					<div className='flex justify-center content-center'>
 						<h1 className='text-[#364954] font-semibold leading-4 pb-2 text-xl'>Tailwindcss</h1>
 					</div>
@@ -88,10 +89,13 @@ function App() {
 						</ul>
 					</nav>
 				</header>
+				
 				{/* tab list */}
 				{toggle === true && (
 					<Slider />
 				)}
+
+				
 				{/* editor content */}
 				<main className=''>{toggle === true ? <TextEditorLive /> : <IntroductionItem />}</main>
 			</div>

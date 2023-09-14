@@ -1,5 +1,7 @@
 import  { useCallback, useState } from 'react'
 import { ComponentProps } from '../types/slide';
+import { GlobalTextEEditor } from '../../utils/globa-state';
+import { codeMappings } from '../../utils/data';
 
 
 
@@ -9,6 +11,7 @@ const useSlider = (data: ComponentProps[]) => {
 	const [{ prev, next }, setPage] = useState<{ prev: number; next: number }>({ prev: 0, next: 5 });
 	const [{ nextForbidden, prevForbidden }, setNotAllowed] = useState<{ nextForbidden: boolean; prevForbidden: boolean }>({ nextForbidden: false, prevForbidden: true });
 	const [active, setActive] = useState<number>(1);
+		const [, setUserCode] = GlobalTextEEditor();
 	// previous slide tracker
 	const onPrev = useCallback(() => {
 		if (start > 0 && end > 5) {
@@ -30,10 +33,19 @@ const useSlider = (data: ComponentProps[]) => {
 
 	const onSelectedIndex = useCallback(
 		(index: number) => {
+
+
+
 			const getIndex = data.findIndex((item) => item.id === index);
 			setActive(getIndex);
+
+	const code = codeMappings[getIndex];
+			if (code) {
+				setUserCode(code);
+			}
+				
 		},
-		[data],
+		[data, setUserCode],
 	);
 
 	return {
